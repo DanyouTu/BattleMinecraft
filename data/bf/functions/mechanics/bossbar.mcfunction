@@ -1,0 +1,2 @@
+bossbar set bf:red_tickets name [{"text":"紅隊兵力: ","color":"red","bold":true},{"score":{"name":"Red","objective":"bf_tickets"},"color":"white"}]
+bossbar set bf:blue_tickets name [{"text":"藍隊兵力: ","color":"blue","bold":true},{"score":{"name":"Blue","objective":"bf_tickets"},"color":"white"}]
