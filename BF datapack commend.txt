@@ -1,0 +1,2 @@
+/scoreboard players set @e[type=armor_stand, distance=..3, limit=1] bf_p_id 10
+/data merge entity @e[type=minecraft:armor_stand, distance=..3, limit=1] {CustomName:'{"text":"A點","color":"gold"}'}
