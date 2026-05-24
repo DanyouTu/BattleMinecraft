@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "skeleton_skull"
+        },
+        "title": "Kill",
+        "description": "",
+        "announce_to_chat": false,
+        "frame": "task",
+        "hidden": true,
+        "show_toast": false
+    },
+    "criteria": {
+        "kill":{
+            "trigger": "player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:player"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": 
+    }
+}
