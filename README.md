@@ -10,15 +10,16 @@ A BattleField datapack for Minecraft
 - 支援多人遊戲
 
 ## Before Use
+> [!TIP]
+> 如有放錯盔甲架，請用指令刪掉最近的盔甲架
 
 - **前置模組: TACZ槍械模組、LesRaisins Armor-(A Tactical Armor Mod)、Scaling Health**
-- 目前移除工具還是有問題，如有放錯請用指令刪掉最近的盔甲架
 - .txt文件為設定據點用的
 
 ## Settings
 > [!WARNING]
-> 一定要靠近點位的盔甲架 且.txt檔裡的**第二條指令**一定要設定
-> 數字從10號開始 最多到13號
+> 一定要靠近點位的盔甲架，且.txt檔裡的**第二條指令**一定要設定
+> 數字從10號開始，最多到13號
 
 比如設定四個點 每個據點的編號就要設定為10~13
 - 邊界設定請個自放在對角線的位置，在右鍵使用胡蘿蔔釣竿設定
