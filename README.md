@@ -69,6 +69,3 @@ Admins should manually join players into their respective teams (default team na
    /function bf:uninstall
    
    ```
-```
-
-```
