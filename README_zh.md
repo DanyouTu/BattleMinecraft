@@ -43,7 +43,7 @@
     ```mcfunction
     /scoreboard players set @e[type=armor_stand, distance=..3, limit=1] bf_p_id 10
     ```
- 3. **命名據點：** 輸入以下指令來為據點命名與綁定。以下指令以設定「A點」為例，你可以自由修改裡面的 A點 與顏色 gold：
+ 3. **命名據點：** 輸入以下指令來為據點命名與綁定。以下指令以設定「A點」為例，你可以自由修改裡面的`A點`與顏色 `gold`：
    ```mcfunction
    /data merge entity @e[type=minecraft:armor_stand, distance=..3, limit=1] {CustomName:'{"text":"A點","color":"gold"}'}
    
