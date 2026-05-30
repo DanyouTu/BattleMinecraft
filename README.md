@@ -1,4 +1,4 @@
-# BattleMinecraft
+# BattleMinecraft (原版1.20.1)
 
 在 Minecraft 中還原《戰地風雲》的經典佔點模式！本資料包支援多人連線，具備據點佔領、專屬重生點與戰場攝影機預覽系統
 
@@ -9,7 +9,6 @@
 - 👥 **多人遊戲支援：** 支援 Red 與 Blue 兩方陣營對抗。
 
 ## ⚙️ 前置 (Requirement)
-
 在遊玩之前，請確保你的伺服器或客戶端已安裝以下模組（Mods）：
 - **TACZ (Timeless and Classics Zero):** 槍械武器系統
 - **LesRaisins Armor:** 戰術裝備與護甲模組
