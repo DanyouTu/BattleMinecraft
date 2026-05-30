@@ -8,7 +8,7 @@
 - 🗺️ **高自由度自定義：** 戰場範圍、據點名稱與位置皆可自由修改。
 - 👥 **多人遊戲支援：** 支援 Red 與 Blue 兩方陣營對抗。
 
-## ⚙️ 前置模組 (Dependencies)
+## ⚙️ 前置 (Requirement)
 
 在遊玩之前，請確保你的伺服器或客戶端已安裝以下模組（Mods）：
 - **TACZ (Timeless and Classics Zero):** 槍械武器系統
