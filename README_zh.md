@@ -1,4 +1,4 @@
-# BattleMinecraft (原版1.20.1)
+# BattleMinecraft (Forge 1.20.1)
 [中文](README_zh.md) | [English](README.md)
 
 在 Minecraft 中還原《戰地風雲》的經典佔點模式！本資料包支援多人連線，具備據點佔領、專屬重生點與戰場攝影機預覽系統
