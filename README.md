@@ -1,4 +1,4 @@
-# BattleMinecraft (1.20.1)
+# BattleMinecraft (Forge 1.20.1)
 [中文](README_zh.md) | [English](README.md)
 
 Recreate the classic Conquest mode from *Battlefield* in Minecraft! This datapack supports multiplayer and features control point capturing, dedicated spawn points, and a battlefield preview camera system.
