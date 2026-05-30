@@ -42,12 +42,12 @@ Place the control point armor stands on the map. Please pay attention to the fol
 > [!IMPORTANT]
 > The first setting is mandatory; otherwise, the system won't work. Make sure to stand very close to the control point's armor stand (within 3 blocks) when applying these settings.
 > 
- 1. **Point ID:** The bf_p_id for the control point must start from 10, up to a maximum of 13 (e.g., if setting 4 points, use 10~13):
+ 1. **Point ID:** The `bf_p_id` for the control point must start from 10, up to a maximum of 13 (e.g., if setting 4 points, use 10~13):
    ```mcfunction
    /scoreboard players set @e[type=armor_stand, distance=..3, limit=1] bf_p_id 10
    
    ```
- 2. **Name the Point:** Enter the following command to name and bind the point. The command below uses "Point A" (A點) as an example; you can freely modify the text inside and the color "gold":
+ 2. **Name the Point:** Enter the following command to name and bind the point. The command below uses "Point A" (A點) as an example; you can freely modify the `text` inside and the color `gold`:
 ```mcfunction
 /data merge entity @e[type=minecraft:armor_stand, distance=..3, limit=1] {CustomName:'{"text":"Point A","color":"gold"}'}
 
