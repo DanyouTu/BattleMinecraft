@@ -1,65 +1,74 @@
-# BattleMinecraft (原版1.20.1)
+# BattleMinecraft (1.20.1 Vanilla)
+[中文](README_zh.md) | [English](README.md)
 
-在 Minecraft 中還原《戰地風雲》的經典佔點模式！本資料包支援多人連線，具備據點佔領、專屬重生點與戰場攝影機預覽系統
+Recreate the classic Conquest mode from *Battlefield* in Minecraft! This datapack supports multiplayer and features control point capturing, dedicated spawn points, and a battlefield preview camera system.
 
-## ✨ 遊戲特色
+## ✨ Features
 
-- 🚩 **核心佔點模式：** 以據點爭奪為核心，支援據點復活與戰場預覽攝影機。
-- 🗺️ **高自由度自定義：** 戰場範圍、據點名稱與位置皆可自由修改。
-- 👥 **多人遊戲支援：** 支援 Red 與 Blue 兩方陣營對抗。
+- 🚩 **Core Conquest Mode:** Centered around capturing control points, supporting point-specific respawns and a spectator camera system.
+- 🗺️ **High Customizability:** Freely modify the battlefield boundaries, control point names, and their locations.
+- 👥 **Multiplayer Support:** Supports team-based combat between the Red and Blue factions.
 
-## ⚙️ 前置 (Requirement)
-在遊玩之前，請確保你的伺服器或客戶端已安裝以下模組（Mods）：
-- **TACZ (Timeless and Classics Zero):** 槍械武器系統
-- **LesRaisins Armor:** 戰術裝備與護甲模組
-- **Scaling Health:** 血量與難度動態調整
+## ⚙️ Requirements
+
+Before playing, ensure your server or client has the following mods installed:
+- **TACZ (Timeless and Classics Zero):** Gun and weapon system.
+- **LesRaisins Armor:** Tactical equipment and armor mod.
+- **Scaling Health:** Dynamic health and difficulty adjustments.
 
 ---
 
-## 🛠️ 遊戲設定流程 (Setup Guide)
+## 🛠️ Setup Guide
 
 > [!WARNING]
-> 設定據點時，點與點之間的距離**不能過近**，否則會導致預覽攝影機視角錯亂。
+> When setting up control points, the distance between them **must not be too close**; otherwise, it will cause the preview camera to glitch.
 
-### Step 1: 取得設定工具
-進入遊戲後，輸入以下指令取得所有設定用的道具：
+### Step 1: Obtain Setup Tools
+Upon entering the game, type the following command to get all the setup items:
 ```mcfunction
 /function bf:tools
 
 ```
-### Step 2: 設定戰場邊界
-使用工具中的**兩個胡蘿蔔釣竿**，依序在戰場的「兩個對角線位置」點擊右鍵，設定戰場範圍。
-再用**更新邊界胡蘿蔔釣竿**右鍵更新座標資訊。
-### Step 3: 放置陣營基地
-直接放置紅方（Red）與藍方（Blue）的基地盔甲架。
-   > [!NOTE]
-   > 放置後盔甲架會自動消失，這是正常現象，代表已設定成功。
-### Step 4: 設定佔領據點
-將據點盔甲架放置在地圖中。請留意以下兩項重要設定：
+### Step 2: Set Battlefield Boundaries
+Use the **two Carrot on a Sticks** from the tools and right-click on the "two diagonal corners" of your desired battlefield to set the boundaries.
+Then, right-click with the **Update Boundary Carrot on a Stick** to update the coordinate data.
+### Step 3: Place Faction Bases
+Directly place the base Armor Stands for the Red and Blue teams.
+> [!NOTE]
+> The armor stands will disappear automatically after placement. This is normal and indicates a successful setup.
+> 
+### Step 4: Set Control Points
+Place the control point armor stands on the map. Please pay attention to the following two important settings:
 > [!IMPORTANT]
-> 第一項設定必做，否則系統不起作用，且設定時務必靠近點位的盔甲架 (距離 3 格以內)
- 1. **據點編號：** 據點的`bf_p_id`必須從 10 號開始，最多設定至 13 號（例如設定 4 個點就是 10~13）:
-    ```mcfunction
-    /scoreboard players set @e[type=armor_stand, distance=..3, limit=1] bf_p_id 10
-    ```
- 3. **命名據點：** 輸入以下指令來為據點命名與綁定。以下指令以設定「A點」為例，你可以自由修改裡面的 A點 與顏色 gold：
+> The first setting is mandatory; otherwise, the system won't work. Make sure to stand very close to the control point's armor stand (within 3 blocks) when applying these settings.
+> 
+ 1. **Point ID:** The bf_p_id for the control point must start from 10, up to a maximum of 13 (e.g., if setting 4 points, use 10~13):
    ```mcfunction
-   /data merge entity @e[type=minecraft:armor_stand, distance=..3, limit=1] {CustomName:'{"text":"A點","color":"gold"}'}
+   /scoreboard players set @e[type=armor_stand, distance=..3, limit=1] bf_p_id 10
    
    ```
-### Step 5: 分配隊伍與開始遊戲
-請管理員手動將玩家加入隊伍（預設隊伍名稱為 Red 與 Blue）。一切就緒後，輸入以下指令正式開始遊戲：
+ 2. **Name the Point:** Enter the following command to name and bind the point. The command below uses "Point A" (A點) as an example; you can freely modify the text inside and the color "gold":
+```mcfunction
+/data merge entity @e[type=minecraft:armor_stand, distance=..3, limit=1] {CustomName:'{"text":"Point A","color":"gold"}'}
+
+```
+### Step 5: Assign Teams and Start the Game
+Admins should manually join players into their respective teams (default team names are Red and Blue). Once everything is ready, enter the following command to officially start the game:
 ```mcfunction
 /function bf:game/game_start
 
 ```
-## 🔧 疑難排解與實用指令
- * **放錯盔甲架怎麼辦？**
+## 🔧 Troubleshooting & Useful Commands
+ * **Misplaced an armor stand?**
 > [!TIP]
-> 如果不小心放錯位置，請靠近該盔甲架並使用清除指令刪除最近的盔甲架即可。
- * **如何解除安裝/重置遊戲？**
-   若需清除資料包的設定或重置場地，請輸入：
+> If you accidentally place an armor stand in the wrong location, simply get close to it and use a clear command to delete the nearest armor stand.
+> 
+ * **How to uninstall or reset the game?**
+   If you need to clear the datapack settings or reset the battlefield, type:
    ```mcfunction
    /function bf:uninstall
    
    ```
+```
+
+```
