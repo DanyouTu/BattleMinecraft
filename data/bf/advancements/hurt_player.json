@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "iron_sword"
+        },
+        "title": "Hurt Player",
+        "description": "",
+        "announce_to_chat": false,
+        "frame": "task",
+        "hidden": true,
+        "show_toast": false
+    },
+    "criteria": {
+        "hurt": {
+            "trigger": "player_hurt_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:player"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "bf:mechanics/killcam/on_hurt"
+    }
+}

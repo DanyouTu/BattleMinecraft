@@ -17,6 +17,7 @@ tag @a remove deploying
 tag @a remove deploy_failed
 tag @a remove looking_for_target
 tag @a remove preview_failed
+tag @a remove bf_in_killcam
 
 # 2. 數值 & 旗幟重置
 function bf:utils/reset_tickets_and_flags

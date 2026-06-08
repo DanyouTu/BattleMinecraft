@@ -40,6 +40,8 @@ scoreboard objectives remove bf_sq_dep
 scoreboard objectives remove bf_sq_prev
 scoreboard objectives remove bf_menu_flip
 scoreboard objectives remove bf_join_team
+scoreboard objectives remove bf_pid
+scoreboard objectives remove bf_last_hit_by
 
 # --- 3. 移除隊伍與 Bossbar ---
 team remove Red
@@ -60,6 +62,10 @@ tag @a remove is_teammate
 tag @a remove sq_slot_1
 tag @a remove sq_slot_2
 tag @a remove sq_slot_3
+tag @a remove bf_in_killcam
+tag @a remove bf_attacker
+tag @a remove bf_my_killer
+tag @a remove bf_finding_killer
 effect clear @a
 clear @a
 

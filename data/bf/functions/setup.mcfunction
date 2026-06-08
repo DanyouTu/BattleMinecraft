@@ -41,6 +41,10 @@ scoreboard objectives add bf_join_team trigger "加入隊伍"
 scoreboard objectives add bf_squad dummy "小隊編號"
 scoreboard objectives add bf_sq_count dummy "小隊計數"
 
+# Killcam 系統記分板
+scoreboard objectives add bf_pid dummy "玩家唯一ID"
+scoreboard objectives add bf_last_hit_by dummy "最後攻擊者ID"
+
 # --- 3. 邊界座標變數 ---
 scoreboard objectives add bf_coord dummy "座標運算"
 scoreboard players set BoundMinX bf_coord -100
