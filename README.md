@@ -1,13 +1,16 @@
 # BattleMinecraft (Forge 1.20.1)
 [中文](README_zh.md) | [English](README.md)
 
-Recreate the classic Conquest mode from *Battlefield* in Minecraft! This datapack supports multiplayer and features control point capturing, dedicated spawn points, and a battlefield preview camera system.
+Recreate the classic Conquest mode from *Battlefield* in Minecraft! This datapack supports multiplayer and features control point capturing, dedicated spawn points, a squad system, and a battlefield preview camera system.
 
 ## ✨ Features
 
 - 🚩 **Core Conquest Mode:** Centered around capturing control points, supporting point-specific respawns and a spectator camera system.
 - 🗺️ **High Customizability:** Freely modify the battlefield boundaries, control point names, and their locations.
 - 👥 **Multiplayer Support:** Supports team-based combat between the Red and Blue factions.
+- 🎖️ **Class System:** Choose from 5 classes — Assault, Medic, Support, Recon, and Assassin.
+- 👫 **Squad System:** Join squads of up to 4 players, preview squadmates' positions, and deploy directly on living squadmates.
+- ✅ **Pre-game Validation:** Automatic checks ensure bases, teams, and control points are properly configured before the match starts.
 
 ## ⚙️ Requirements
 
@@ -53,11 +56,25 @@ Place the control point armor stands on the map. Please pay attention to the fol
 
 ```
 ### Step 5: Assign Teams and Start the Game
-Admins should manually join players into their respective teams (default team names are Red and Blue). Once everything is ready, enter the following command to officially start the game:
+Players can join teams via the in-game chat menu (no OP required), or admins can manually assign them. Once everything is ready, enter the following command to officially start the game:
 ```mcfunction
 /function bf:game/game_start
 
 ```
+> [!NOTE]
+> The game will automatically validate the setup before starting. If bases or teams are missing, an error message will be displayed.
+
+## 👫 Squad System
+
+After the game starts, players in the lobby can access the **Squad Page** by clicking the page-switch button in the deployment menu:
+- **Join a Squad:** Click to join one of the 4 available squads (max 4 players per squad).
+- **Preview Squadmate:** View a living squadmate's camera perspective.
+- **Deploy on Squadmate:** Teleport directly to a living squadmate's position.
+
+Squads are team-restricted — you can only join squads with players on the same team.
+
+---
+
 ## 🔧 Troubleshooting & Useful Commands
  * **Misplaced an armor stand?**
 > [!TIP]
