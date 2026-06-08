@@ -11,6 +11,7 @@ kill @e[tag=bf_map_center]
 kill @e[tag=bf_pointer]
 kill @e[tag=bf_corner_a]
 kill @e[tag=bf_corner_b]
+kill @e[type=text_display,tag=bf_pointer]
 
 # --- 2. 移除記分板 ---
 scoreboard objectives remove bf_tickets
@@ -38,6 +39,7 @@ scoreboard objectives remove bf_join_sq
 scoreboard objectives remove bf_sq_dep
 scoreboard objectives remove bf_sq_prev
 scoreboard objectives remove bf_menu_flip
+scoreboard objectives remove bf_join_team
 
 # --- 3. 移除隊伍與 Bossbar ---
 team remove Red
@@ -63,8 +65,5 @@ clear @a
 
 # --- 5. 清除排程 ---
 schedule clear bf:game/reset
-
-# --- 6. 移除所有裝甲架 (最後手段清理) ---
-kill @e[type=armor_stand]
 
 tellraw @a {"text":"[System] 系統已完整卸載。","color":"red"}
