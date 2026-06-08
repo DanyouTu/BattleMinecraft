@@ -1,3 +1,4 @@
+tag @s remove bf_on_squad_page
 # --- 1~2. 篩選可部署據點 ---
 function bf:utils/filter_menu_list
 

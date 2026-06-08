@@ -66,6 +66,9 @@ tag @a remove bf_in_killcam
 tag @a remove bf_attacker
 tag @a remove bf_my_killer
 tag @a remove bf_finding_killer
+tag @a remove bf_on_squad_page
+tag @a remove bf_sq_refresh_src
+tag @a remove bf_squad_notify_src
 effect clear @a
 clear @a
 

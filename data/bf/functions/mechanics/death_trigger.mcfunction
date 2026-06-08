@@ -20,3 +20,6 @@ scoreboard players set @s bf_cam_timer 160
 # 6. 訊息與音效
 title @s title {"text":"你已死亡","color":"red","bold":true}
 title @s subtitle {"text":"準備重新部署","color":"yellow"}
+
+# 7. 通知同小隊的死亡/大廳玩家刷新選單 (小隊部署選項可能變了)
+execute if score @s bf_squad matches 1.. run function bf:mechanics/killcam/notify_squad

@@ -1,3 +1,4 @@
+tag @s add bf_on_squad_page
 tellraw @s "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 tellraw @s ["",{"text":"===== 小隊部署 =====","color":"green","bold":true}]
 
