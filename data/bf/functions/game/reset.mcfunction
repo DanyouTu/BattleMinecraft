@@ -18,17 +18,11 @@ tag @a remove deploy_failed
 tag @a remove looking_for_target
 tag @a remove preview_failed
 
-# 2. 數值重置
-scoreboard players set Red bf_tickets 1000
-scoreboard players set Blue bf_tickets 1000
+# 2. 數值 & 旗幟重置
+function bf:utils/reset_tickets_and_flags
 scoreboard players set Global bf_timer 0
 scoreboard players set @a bf_base_warn 0
 scoreboard players set @a bf_cd 0
-
-# 3. 旗幟重置
-execute as @e[tag=bf_flag] run scoreboard players set @s bf_capture 0
-execute as @e[tag=bf_flag] run scoreboard players set @s bf_owner 0
-execute as @e[tag=bf_flag] run item replace entity @s armor.head with white_wool
 
 # 4. 清除殘留的導航箭頭
 kill @e[type=text_display,tag=bf_pointer]

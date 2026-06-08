@@ -16,16 +16,10 @@ execute unless entity @e[tag=bf_base_blue,limit=1] run return 0
 execute unless entity @a[team=Red] unless entity @a[team=Blue] run tellraw @a {"text":"[錯誤] 沒有任何玩家加入隊伍！請先分配隊伍。","color":"red"}
 execute unless entity @a[team=Red] unless entity @a[team=Blue] run return 0
 
-# --- 設定兵力 ---
-scoreboard players set Red bf_tickets 1000
-scoreboard players set Blue bf_tickets 1000
+# --- 設定兵力 & 重置旗幟 ---
+function bf:utils/reset_tickets_and_flags
 scoreboard players set Global bf_timer 0
 scoreboard players set Game bf_gamestate 1
-
-# 重置旗幟
-execute as @e[tag=bf_flag] run scoreboard players set @s bf_capture 0
-execute as @e[tag=bf_flag] run scoreboard players set @s bf_owner 0
-execute as @e[tag=bf_flag] run item replace entity @s armor.head with white_wool
 
 team modify Red nametagVisibility hideForOtherTeams
 team modify Blue nametagVisibility hideForOtherTeams

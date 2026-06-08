@@ -19,17 +19,8 @@ execute if entity @s[tag=deploy_failed] run scoreboard players set @s bf_click_a
 execute if entity @s[tag=deploy_failed] run tag @s remove deploy_failed
 execute unless entity @s[tag=deploying] run return 0
 
-# 5. 部署成功 - 切換模式與給裝備
-gamemode survival @s
-tag @s remove in_lobby
+# 5. 部署成功 - 共用部署流程
 tag @s remove deploying
 scoreboard players set @s bf_click_act 0
-scoreboard players set @s bf_deaths 0
-
-# 6. 防重生殺與音效
-effect give @s resistance 5 255 true
-sh_health set @s 21
-playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1
+function bf:utils/deploy_player
 title @s actionbar {"text":"部署完成！","color":"green","bold":true}
-
-function bf:mechanics/menu/print_class
