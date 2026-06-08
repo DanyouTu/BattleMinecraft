@@ -1,0 +1,26 @@
+# 傳送到隊友身邊
+execute if score @s bf_sq_dep matches 1 if entity @a[tag=sq_slot_1,gamemode=survival,limit=1] run tp @s @a[tag=sq_slot_1,limit=1]
+execute if score @s bf_sq_dep matches 1 if entity @a[tag=sq_slot_1,gamemode=survival,limit=1] run tag @s add deploying
+
+execute if score @s bf_sq_dep matches 2 if entity @a[tag=sq_slot_2,gamemode=survival,limit=1] run tp @s @a[tag=sq_slot_2,limit=1]
+execute if score @s bf_sq_dep matches 2 if entity @a[tag=sq_slot_2,gamemode=survival,limit=1] run tag @s add deploying
+
+execute if score @s bf_sq_dep matches 3 if entity @a[tag=sq_slot_3,gamemode=survival,limit=1] run tp @s @a[tag=sq_slot_3,limit=1]
+execute if score @s bf_sq_dep matches 3 if entity @a[tag=sq_slot_3,gamemode=survival,limit=1] run tag @s add deploying
+
+# --- 執行重生手續 (照抄你原本 handle_deploy_click 的設定) ---
+execute as @s[tag=deploying] run spectate @s
+execute as @s[tag=deploying] run gamemode survival @s
+execute as @s[tag=deploying] run tag @s remove in_lobby
+execute as @s[tag=deploying] run scoreboard players set @s bf_deaths 0
+
+# 防重生殺與音效
+execute as @s[tag=deploying] run effect give @s resistance 5 255 true
+execute as @s[tag=deploying] run sh_health set @s 21
+execute as @s[tag=deploying] run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1
+execute as @s[tag=deploying] run title @s actionbar {"text":"已部署至小隊！","color":"green","bold":true}
+execute as @s[tag=deploying] run function bf:mechanics/menu/print_class
+
+# 收尾
+tag @s remove deploying
+scoreboard players set @s bf_sq_dep 0
