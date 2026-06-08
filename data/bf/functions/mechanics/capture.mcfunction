@@ -12,9 +12,8 @@ execute as @e[type=armor_stand,tag=bf_flag_item] run scoreboard players set @s b
 execute as @e[type=armor_stand,tag=bf_flag_item] run tag @s remove bf_flag_item
 
 
-# --- 2. 佔領計算 (邏輯保持不變) ---
-execute as @e[tag=bf_flag] at @s if entity @a[team=Red,distance=..8,gamemode=survival] unless entity @a[team=Blue,distance=..8,gamemode=survival] if score @s bf_capture matches ..99 if score Game bf_gamestate matches 1 run scoreboard players add @s bf_capture 1
-execute as @e[tag=bf_flag] at @s if entity @a[team=Blue,distance=..8,gamemode=survival] unless entity @a[team=Red,distance=..8,gamemode=survival] if score @s bf_capture matches -99.. if score Game bf_gamestate matches 1 run scoreboard players remove @s bf_capture 1
+# --- 2. 佔領計算 (拉鋸戰版：人數差決定速度) ---
+execute as @e[tag=bf_flag] at @s if score Game bf_gamestate matches 1 run function bf:mechanics/capture_calc
 
 
 # ==================================================

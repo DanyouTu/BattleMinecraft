@@ -1,3 +1,7 @@
+# --- Killcam: 自動分配玩家唯一 ID ---
+execute as @a unless score @s bf_pid = @s bf_pid run scoreboard players add #pid_counter bf_temp 1
+execute as @a unless score @s bf_pid = @s bf_pid run scoreboard players operation @s bf_pid = #pid_counter bf_temp
+
 # 子系統執行
 scoreboard players enable @a bf_click_id
 scoreboard players enable @a bf_click_act

@@ -14,7 +14,7 @@ execute unless entity @s[tag=deploying] run scoreboard players set @s bf_sq_dep 
 execute unless entity @s[tag=deploying] run return 0
 
 # --- 執行重生手續 (共用部署流程) ---
-execute as @s[tag=deploying] run spectate @s
+execute as @s[tag=deploying] run spectate
 execute as @s[tag=deploying] run function bf:utils/deploy_player
 execute as @s[tag=deploying] run title @s actionbar {"text":"已部署至小隊！","color":"green","bold":true}
 

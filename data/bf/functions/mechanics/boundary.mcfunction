@@ -37,8 +37,7 @@ execute as @a[gamemode=survival,tag=!IsSafe,tag=bf_has_pointer,nbt=!{Health:0.0f
 
 # 2. 自動清理機制 (Garbage Collection)
 tag @e[type=text_display,tag=bf_pointer] add bf_garbage
-execute as @a[gamemode=survival,tag=!IsSafe,nbt=!{Health:0.0f}] run scoreboard players operation #temp_gc_id bf_temp = @s bf_ui_id
-execute as @a[gamemode=survival,tag=!IsSafe,nbt=!{Health:0.0f}] run execute as @e[type=text_display,tag=bf_pointer] if score @s bf_ui_id = #temp_gc_id bf_temp run tag @s remove bf_garbage
+execute as @a[gamemode=survival,tag=!IsSafe,nbt=!{Health:0.0f}] run function bf:mechanics/unmark_my_pointer
 kill @e[type=text_display,tag=bf_pointer,tag=bf_garbage]
 tag @a[tag=IsSafe] remove bf_has_pointer
 tag @a[nbt={Health:0.0f}] remove bf_has_pointer
