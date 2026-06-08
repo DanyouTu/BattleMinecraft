@@ -21,6 +21,6 @@
         }
     },
     "rewards": {
-        "function": 
+        "function": "bf:mechanics/death"
     }
 }
