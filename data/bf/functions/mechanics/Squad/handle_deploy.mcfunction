@@ -8,7 +8,12 @@ execute if score @s bf_sq_dep matches 2 if entity @a[tag=sq_slot_2,gamemode=surv
 execute if score @s bf_sq_dep matches 3 if entity @a[tag=sq_slot_3,gamemode=survival,limit=1] run tp @s @a[tag=sq_slot_3,limit=1]
 execute if score @s bf_sq_dep matches 3 if entity @a[tag=sq_slot_3,gamemode=survival,limit=1] run tag @s add deploying
 
-# --- 執行重生手續 (照抄你原本 handle_deploy_click 的設定) ---
+# --- 如果部署失敗 (隊友不存活)，通知玩家 ---
+execute unless entity @s[tag=deploying] run tellraw @s {"text":"[錯誤] 無法部署：該隊友已陣亡或不在戰場上。","color":"red"}
+execute unless entity @s[tag=deploying] run scoreboard players set @s bf_sq_dep 0
+execute unless entity @s[tag=deploying] run return 0
+
+# --- 執行重生手續 ---
 execute as @s[tag=deploying] run spectate @s
 execute as @s[tag=deploying] run gamemode survival @s
 execute as @s[tag=deploying] run tag @s remove in_lobby

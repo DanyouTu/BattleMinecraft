@@ -1,4 +1,5 @@
 scoreboard players set @s bf_click 0
+
 # 初始化角落
 execute as @e[type=armor_stand,tag=bf_corner_a_item] run tag @s add bf_corner_a
 execute as @e[type=armor_stand,tag=bf_corner_b_item] run tag @s add bf_corner_b
@@ -6,6 +7,13 @@ execute as @e[tag=bf_corner_a_item] run data merge entity @s {Invisible:1b,Marke
 execute as @e[tag=bf_corner_b_item] run data merge entity @s {Invisible:1b,Marker:1b,NoGravity:1b,CustomNameVisible:1b,CustomName:'{"text":"[邊界 B]","color":"aqua"}'}
 tag @e remove bf_corner_a_item
 tag @e remove bf_corner_b_item
+
+# --- 驗證兩個角落都存在 ---
+execute unless entity @e[tag=bf_corner_a,limit=1] run tellraw @s {"text":"[錯誤] 找不到邊界 A！請先放置邊界 A 的裝甲架。","color":"red"}
+execute unless entity @e[tag=bf_corner_a,limit=1] run return 0
+
+execute unless entity @e[tag=bf_corner_b,limit=1] run tellraw @s {"text":"[錯誤] 找不到邊界 B！請先放置邊界 B 的裝甲架。","color":"red"}
+execute unless entity @e[tag=bf_corner_b,limit=1] run return 0
 
 # 獲取座標
 execute as @e[tag=bf_corner_a,limit=1] store result score TempAX bf_coord run data get entity @s Pos[0]
@@ -24,10 +32,8 @@ execute if score TempAZ bf_coord > TempBZ bf_coord run scoreboard players operat
 execute if score TempAZ bf_coord <= TempBZ bf_coord run scoreboard players operation BoundMaxZ bf_coord = TempBZ bf_coord
 execute if score TempAZ bf_coord <= TempBZ bf_coord run scoreboard players operation BoundMinZ bf_coord = TempAZ bf_coord
 
-# ... (上面是原本的比大小邏輯)
-
 # ==========================================
-# ★ 新增：計算並生成地圖中心點 (用於安全區導航)
+# ★ 計算並生成地圖中心點 (用於安全區導航)
 # ==========================================
 
 # 1. 清除舊的中心點
@@ -50,10 +56,8 @@ scoreboard players operation #Center_Z bf_coord /= #CONST_2 bf_coord
 summon armor_stand ~ ~ ~ {Tags:["bf_map_center"],Marker:1b,Invisible:1b,NoGravity:1b}
 execute store result entity @e[tag=bf_map_center,limit=1] Pos[0] double 1 run scoreboard players get #Center_X bf_coord
 execute store result entity @e[tag=bf_map_center,limit=1] Pos[2] double 1 run scoreboard players get #Center_Z bf_coord
-# 把高度設為跟邊界A一樣 (或者固定高度)，避免掉入虛空
+# 把高度設為跟邊界A一樣，避免掉入虛空
 execute as @e[tag=bf_corner_a,limit=1] store result entity @e[tag=bf_map_center,limit=1] Pos[1] double 1 run data get entity @s Pos[1]
-
-# ... (接原本的 playsound 和 tellraw)
 
 playsound minecraft:block.note_block.pling master @a ~ ~ ~ 1 2
 tellraw @a {"text":"[BF System] 矩形邊界已更新！","color":"green"}
