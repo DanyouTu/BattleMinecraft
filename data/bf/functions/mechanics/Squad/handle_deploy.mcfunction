@@ -13,18 +13,10 @@ execute unless entity @s[tag=deploying] run tellraw @s {"text":"[錯誤] 無法�
 execute unless entity @s[tag=deploying] run scoreboard players set @s bf_sq_dep 0
 execute unless entity @s[tag=deploying] run return 0
 
-# --- 執行重生手續 ---
+# --- 執行重生手續 (共用部署流程) ---
 execute as @s[tag=deploying] run spectate @s
-execute as @s[tag=deploying] run gamemode survival @s
-execute as @s[tag=deploying] run tag @s remove in_lobby
-execute as @s[tag=deploying] run scoreboard players set @s bf_deaths 0
-
-# 防重生殺與音效
-execute as @s[tag=deploying] run effect give @s resistance 5 255 true
-execute as @s[tag=deploying] run sh_health set @s 21
-execute as @s[tag=deploying] run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1
+execute as @s[tag=deploying] run function bf:utils/deploy_player
 execute as @s[tag=deploying] run title @s actionbar {"text":"已部署至小隊！","color":"green","bold":true}
-execute as @s[tag=deploying] run function bf:mechanics/menu/print_class
 
 # 收尾
 tag @s remove deploying
