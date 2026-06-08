@@ -2,6 +2,11 @@
 scoreboard players enable @a bf_click_id
 scoreboard players enable @a bf_click_act
 scoreboard players enable @a bf_class
+scoreboard players enable @a bf_join_sq
+scoreboard players enable @a bf_menu_flip
+scoreboard players enable @a bf_sq_prev
+scoreboard players enable @a bf_sq_dep
+scoreboard players enable @a bf_join_team
 
 function bf:mechanics/capture
 function bf:mechanics/setup_bases
@@ -37,6 +42,26 @@ execute as @a[scores={bf_click_id=1..}] run function bf:mechanics/handle_preview
 
 # (B) 處理 [部署] 點擊
 execute as @a[scores={bf_click_act=1..}] run function bf:mechanics/handle_deploy_click
+
+# (C) 處理小隊加入/退出
+execute as @a[scores={bf_join_sq=1..}] run function bf:mechanics/squad/handle_join
+execute as @a[scores={bf_join_sq=..-1}] run function bf:mechanics/squad/handle_join
+
+# (D) 處理選單翻頁
+execute as @a[scores={bf_menu_flip=1},tag=in_lobby] run function bf:mechanics/menu/page_squad
+execute as @a[scores={bf_menu_flip=2},tag=in_lobby] run function bf:mechanics/menu/page_points
+execute as @a[scores={bf_menu_flip=1..}] run scoreboard players set @s bf_menu_flip 0
+
+# (E) 處理小隊預覽
+execute as @a[scores={bf_sq_prev=1..}] run function bf:mechanics/squad/handle_preview
+
+# (F) 處理小隊部署
+execute as @a[scores={bf_sq_dep=1..}] run function bf:mechanics/squad/handle_deploy
+
+# (G) 處理加入隊伍 (trigger-based, no OP required)
+execute as @a[scores={bf_join_team=1}] if score Game bf_gamestate matches 0 run function bf:team/join_red
+execute as @a[scores={bf_join_team=2}] if score Game bf_gamestate matches 0 run function bf:team/join_blue
+execute as @a[scores={bf_join_team=1..}] run scoreboard players set @s bf_join_team 0
 
 execute as @a[tag=in_lobby] run title @s actionbar {"text":"按 [T] 打開聊天欄選擇重生點","color":"yellow","bold":true}
 

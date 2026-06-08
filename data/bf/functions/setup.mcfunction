@@ -31,6 +31,15 @@ scoreboard players set Game bf_gamestate 0
 scoreboard objectives add bf_click_id trigger
 scoreboard objectives add bf_click_act trigger
 scoreboard objectives add bf_class trigger "職業"
+scoreboard objectives add bf_join_sq trigger "加入小隊"
+scoreboard objectives add bf_menu_flip trigger "翻頁"
+scoreboard objectives add bf_sq_prev trigger "小隊預覽"
+scoreboard objectives add bf_sq_dep trigger "小隊部署"
+scoreboard objectives add bf_join_team trigger "加入隊伍"
+
+# 小隊系統記分板
+scoreboard objectives add bf_squad dummy "小隊編號"
+scoreboard objectives add bf_sq_count dummy "小隊計數"
 
 # --- 3. 邊界座標變數 ---
 scoreboard objectives add bf_coord dummy "座標運算"
