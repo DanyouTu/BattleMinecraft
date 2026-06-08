@@ -14,4 +14,5 @@ gamemode spectator @s
 tag @s add in_lobby
 
 # 4. 呼叫選單
-function bf:mechanics/menu/print_menu
+function bf:mechanics/menu/page_points
+title @s actionbar {"text":"按 [T] 打開聊天欄選擇重生點","color":"yellow","bold":true}

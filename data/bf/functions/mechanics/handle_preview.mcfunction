@@ -12,5 +12,5 @@ execute at @s run spectate @e[tag=bf_cam_anchor,distance=..20,limit=1,sort=neare
 # 4. 收尾
 tag @s remove looking_for_target
 scoreboard players set @s bf_click_id 0
-title @s actionbar {"text":"[預覽模式]","color":"aqua"}
+title @s actionbar [{"text":"◉ ","color":"red"},{"text":"正在預覽據點...","color":"green"}]
 playsound minecraft:ui.button.click master @s

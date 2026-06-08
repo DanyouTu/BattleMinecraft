@@ -18,6 +18,6 @@ execute as @a[scores={bf_cam_timer=1},tag=!in_lobby] run function bf:mechanics/r
 # 只有當全域變數 #menu_refresh 為 1 時 (代表場上有據點變色了)
 # 才對所有 "死亡中" 且 "不在大廳" 的玩家執行選單重繪
 # 這樣平時聊天室會很乾淨，只有戰況改變時才會跳動
-execute if score #menu_refresh bf_temp matches 1 as @a[scores={bf_cam_timer=1..},tag=!in_lobby] run function bf:mechanics/menu/print_menu
+execute if score #menu_refresh bf_temp matches 1 as @a[scores={bf_cam_timer=1..},tag=!in_lobby] run function bf:mechanics/menu/page_points
 
 # (注意：我們不在這裡把 #menu_refresh 歸零，因為要讓所有玩家都跑完，我們去 tick 歸零)
